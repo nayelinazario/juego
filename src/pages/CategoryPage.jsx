@@ -5,17 +5,13 @@ import { questions, imgs } from "../data";
 
 // Función para barajar las preguntas de cada categoría y también reducirla al número de 5
 const shuffleArray = (array) => {
-  const newArray = array.sort(() => Math.random() - 0.5);
-  return newArray.slice(0, 5);
+  const newArray = array;
+  return newArray;
 };
 
 export const CategoryPage = () => {
   // Leer El parametro de la URL
   const { category } = useParams();
-
-  const [imgCategory] = imgs.filter(
-    (img) => img === `/src/assets/${category.toLowerCase()}.png`
-  );
 
   const [questionsFiltered, setQuestionsFiltered] = useState(
     questions.filter((question) => question.category === category)
