@@ -13,6 +13,44 @@ import MemoriaVisual from "./assets/memoria-visual.png";
 import Posturas from "./assets/posturas.png";
 import Superpuestas from "./assets/superpuestas.png";
 
+// assets/images.js
+
+import boca from "./assets/boca.png";
+import cabeza from "./assets/cabeza.png";
+import dorado from "./assets/dorado.png";
+import fucsia from "./assets/fucsia.png";
+import gesto1 from "./assets/gesto1.png";
+import gesto2 from "./assets/gesto2.png";
+import gesto3 from "./assets/gesto3.png";
+import gesto4 from "./assets/gesto4.png";
+import gestos2 from "./assets/gestos2.png";
+import mano from "./assets/mano.png";
+import nariz from "./assets/nariz.png";
+import ojos from "./assets/ojos.png";
+import oreja from "./assets/oreja.png";
+import pie from "./assets/pie.png";
+import plateado from "./assets/plateado.png";
+import tinto from "./assets/tinto.png";
+
+export const imgPreguntas = {
+  boca,
+  cabeza,
+  dorado,
+  fucsia,
+  gesto1,
+  gesto2,
+  gesto3,
+  gesto4,
+  gestos2,
+  mano,
+  nariz,
+  ojos,
+  oreja,
+  pie,
+  plateado,
+  tinto,
+};
+
 export const imgs = [
   Abstraccion,
   Asociacion,
@@ -201,7 +239,7 @@ export const questions = [
     id: 16,
     difficulty: "MEDIO",
     question: "Ahora repitelas desde la última a la primera (u, o, i, e, a)",
-    category: "abstraccionVerbal",
+    category: "Lenguaje automático-control mental",
     correct_answer: "",
     incorrect_answers: ["", "", ""],
   },
@@ -286,7 +324,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "Se te mostrará una lámina y deberás ubicar cada una de las partes del cuerpo en su lugar correcto.",
-    img: "/assets/ojos.png",
+    img: ojos,
     correct_answer: "ojo",
     incorrect_answers: ["nariz", "cabeza", "pie"],
   },
@@ -296,7 +334,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "Se te mostrará una lámina y deberás ubicar cada una de las partes del cuerpo en su lugar correcto.",
-    img: "/assets/nariz.png",
+    img: nariz,
     correct_answer: "nariz",
     incorrect_answers: ["ojo", "cabeza", "pie"],
   },
@@ -306,7 +344,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "Se te mostrará una lámina y deberás ubicar cada una de las partes del cuerpo en su lugar correcto.",
-    img: "/assets/boca.png",
+    img: boca,
     correct_answer: "boca",
     incorrect_answers: ["ojo", "cabeza", "oreja"],
   },
@@ -316,7 +354,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "Se te mostrará una lámina y deberás ubicar cada una de las partes del cuerpo en su lugar correcto.",
-    img: "/assets/oreja.png",
+    img: oreja,
     correct_answer: "oreja",
     incorrect_answers: ["nariz", "cabeza", "mano"],
   },
@@ -326,7 +364,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "Se te mostrará una lámina y deberás ubicar cada una de las partes del cuerpo en su lugar correcto.",
-    img: "/assets/mano.png",
+    img: mano,
     correct_answer: "mano",
     incorrect_answers: ["ojo", "cabeza", "oreja"],
   },
@@ -336,7 +374,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "Se te mostrará una lámina y deberás ubicar cada una de las partes del cuerpo en su lugar correcto.",
-    img: "/assets/pie.png",
+    img: pie,
     correct_answer: "pie",
     incorrect_answers: ["mano", "cabeza", "oreja"],
   },
@@ -346,7 +384,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "Se te mostrará una lámina y deberás ubicar cada una de las partes del cuerpo en su lugar correcto.",
-    img: "/assets/cabeza.png",
+    img: cabeza,
     correct_answer: "cabeza",
     incorrect_answers: ["ojo", "mano", "oreja"],
   },
@@ -356,7 +394,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "A continuación se te mostrará una serie de círculos, deberás identificar el color de cada uno de ellos",
-    img: "/assets/dorado.png",
+    img: dorado,
     correct_answer: "dorado",
     incorrect_answers: ["rojo", "verde", "azul"],
   },
@@ -366,7 +404,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "A continuación se te mostrará una serie de círculos, deberás identificar el color de cada uno de ellos",
-    img: "/assets/plateado.png",
+    img: plateado,
     correct_answer: "plateado",
     incorrect_answers: ["amarillo", "rosa", "verde"],
   },
@@ -376,7 +414,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "A continuación se te mostrará una serie de círculos, deberás identificar el color de cada uno de ellos",
-    img: "/assets/tinto.png",
+    img: tinto,
     correct_answer: "tinto",
     incorrect_answers: ["azul", "rojo", "verde"],
   },
@@ -386,7 +424,7 @@ export const questions = [
     category: "Comprensión verbal",
     question:
       "A continuación se te mostrará una serie de círculos, deberás identificar el color de cada uno de ellos",
-    img: "/assets/fucsia.png",
+    img: fucsia,
     correct_answer: "fucsia",
     incorrect_answers: ["azul", "rojo", "amarillo"],
   },
@@ -545,7 +583,7 @@ export const questions = [
     difficulty: "BÁSICO",
     category: "Gesto simbólico e imitación de posturas",
     question: "Ahora identifica los gestos que se te presentan a continuación",
-    img: "/assets/gesto1.png",
+    img: gesto1,
     correct_answer: "Feliz",
     incorrect_answers: ["estresado", "disgustado", "enojado"],
   },
@@ -554,7 +592,7 @@ export const questions = [
     difficulty: "BÁSICO",
     category: "Gesto simbólico e imitación de posturas",
     question: "Ahora identifica los gestos que se te presentan a continuación",
-    img: "/assets/gesto2.png",
+    img: gesto2,
     correct_answer: "Enojado",
     incorrect_answers: ["Feliz", "disgustado", "Asqueado"],
   },
@@ -563,7 +601,7 @@ export const questions = [
     difficulty: "BÁSICO",
     category: "Gesto simbólico e imitación de posturas",
     question: "Ahora identifica los gestos que se te presentan a continuación",
-    img: "/assets/gesto3.png",
+    img: gesto3,
     correct_answer: "Triste",
     incorrect_answers: ["Feliz", "Alegre", "Enojado"],
   },
@@ -572,7 +610,7 @@ export const questions = [
     difficulty: "BÁSICO",
     category: "Gesto simbólico e imitación de posturas",
     question: "Ahora identifica los gestos que se te presentan a continuación",
-    img: "/assets/gesto4.png",
+    img: gesto4,
     correct_answer: "Disgustado",
     incorrect_answers: ["Feliz", "Alegre", "Enojado"],
   },
@@ -581,7 +619,7 @@ export const questions = [
     difficulty: "BÁSICO",
     category: "Gesto simbólico e imitación de posturas",
     question: "Buen trabajo👍ahora sonríe para la foto.",
-    img: "/assets/gesto1.png",
+    img: gesto1,
     correct_answer: "",
     incorrect_answers: ["", "", ""],
   },
@@ -591,7 +629,7 @@ export const questions = [
     category: "Secuencia de posturas",
     question:
       "¡Vamos avanzando! Ahora deberás realizar los siguientes movimientos que se te presentan, primero con la mano izquierda, y después con la derecha. ¡Tú puedes!.",
-    img: "/assets/gestos2.png",
+    img: gestos2,
     correct_answer: "",
     incorrect_answers: ["", "", ""],
   },
@@ -610,7 +648,7 @@ export const questions = [
     category: "Secuencia de posturas",
     question:
       "Excelente! Te encuentras en la parte final. Ahora deberás realizar las primeras posturas que realizaste al inicio, solamente sin verlas.",
-    img: "/assets/gestos2.png",
+    img: gestos2,
     correct_answer: "",
     incorrect_answers: ["", "", ""],
   },

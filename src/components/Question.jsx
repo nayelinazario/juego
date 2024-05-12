@@ -13,7 +13,6 @@ export const Question = ({
   const [ansered, setAnswered] = useState(false);
   const [answerRandom, setAnswersRandom] = useState([]);
   const [activeResult, setActiveResult] = useState(false);
-
   useEffect(() => {
     const answers = [
       ...filteredQuestion.incorrect_answers,
@@ -72,6 +71,15 @@ export const Question = ({
           <div>
             <h1 className="font-bold">{filteredQuestion.question}</h1>
           </div>
+          {filteredQuestion.img && (
+            <div className="text-center">
+              <img
+                src={baseUrl + filteredQuestion.img}
+                alt="imagen"
+                className="w-36 mx-auto"
+              />
+            </div>
+          )}
           {/* Opciones de respuesta */}
           <div className="grid grid-cols-2 gap-5">
             {/* Arreglo que aún no existe */}
