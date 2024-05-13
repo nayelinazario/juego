@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Results } from "./Results";
+
 export const Question = ({
   filteredQuestion,
   setIndexQuestion,
@@ -10,9 +11,11 @@ export const Question = ({
 }) => {
   const [score, setScore] = useState(0);
   const [selectAnswerIndex, setSelectAnswerIndex] = useState(null);
-  const [ansered, setAnswered] = useState(false);
+  const [answered, setAnswered] = useState(false);
   const [answerRandom, setAnswersRandom] = useState([]);
   const [activeResult, setActiveResult] = useState(false);
+  const [timerStarted, setTimerStarted] = useState(false);
+
   useEffect(() => {
     const answers = [
       ...filteredQuestion.incorrect_answers,
@@ -25,20 +28,31 @@ export const Question = ({
     if (answerText === filteredQuestion.correct_answer) {
       setScore(score + 1);
     }
+    console.log(filteredQuestion.correct_answer);
+
     setSelectAnswerIndex(index);
     setAnswered(true);
+    if (answerText.trim() === "") {
+      setTimerStarted(true);
+      setTimeout(() => {
+        onNextQuestion();
+      }, 2000); // 2 segundos
+    }
   };
 
   const onNextQuestion = () => {
     setIndexQuestion(indexQuestion + 1);
     setSelectAnswerIndex(null);
     setAnswered(false);
+    setTimerStarted(false);
   };
+
   const onReset = () => {
     setScore(0);
     setIndexQuestion(0);
     setActiveQuiz(false);
   };
+
   return (
     <>
       {activeResult ? (
@@ -48,18 +62,14 @@ export const Question = ({
           onReset={onReset}
         />
       ) : (
-        <div className="flex flex-col justify-between shadow-md shadow-slate-300 w-[600px] h-[600px] p-10 rounded-lg">
+        <div className="flex flex-col justify-between shadow-md shadow-slate-300 w-[600px] h-[850px] p-10 rounded-lg">
           <div className="flex justify-between">
             <span className="text-xl font-bold">
-              {/* Pregunta actual y número de preguntas totales */}
               {indexQuestion + 1} / {questionsFiltered.length}
             </span>
             <div>
               <span className="font-semibold">Dificultad:</span>
-              <span className="font-bold">
-                {/* Dificultad de la pregunta */}
-                {filteredQuestion.difficulty}
-              </span>
+              <span className="font-bold">{filteredQuestion.difficulty}</span>
             </div>
           </div>
           <button
@@ -74,15 +84,13 @@ export const Question = ({
           {filteredQuestion.img && (
             <div className="text-center">
               <img
-                src={baseUrl + filteredQuestion.img}
+                src={filteredQuestion.img}
                 alt="imagen"
-                className="w-36 mx-auto"
+                className="w-30 mx-auto"
               />
             </div>
           )}
-          {/* Opciones de respuesta */}
           <div className="grid grid-cols-2 gap-5">
-            {/* Arreglo que aún no existe */}
             {answerRandom.map((answer, index) => (
               <button
                 className={`border p-5 rounded-lg flex justify-center items-center hover:scale-105 ${
@@ -94,13 +102,17 @@ export const Question = ({
                 }`}
                 key={answer}
                 onClick={() => checkAnswer(answer, index)}
-                disabled={ansered && selectAnswerIndex !== index}
+                disabled={answered && selectAnswerIndex !== index}
               >
                 <p className="font-medium text-center text-sm">{answer}</p>
               </button>
             ))}
           </div>
-          {/*Condicional Botón para pasar a la siguiente pregunta */}
+          {timerStarted && (
+            <p className="text-red-500 font-bold">
+              Selecciona una respuesta...
+            </p>
+          )}
           {indexQuestion + 1 === questionsFiltered.length ? (
             <button
               className="border-2 border-yellow-600 text-yellow-600 rounded-md px-5 py-2 hover:bg-yellow-600 hover:text-black font-medium"
