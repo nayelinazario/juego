@@ -124,13 +124,6 @@ export const CategoryList = () => {
         gradientColor="from-purple-400 to-red-400"
       />
       {/* Superpuestas */}
-
-      <CategoryCard
-        category={categories.superpuestas}
-        src={Superpuestas}
-        alt={`Categoria ${categories.superpuestas}`}
-        gradientColor="from-teal-400 to-pink-400"
-      />
     </div>
   );
 };
